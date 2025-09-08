@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Button } from '@/components/ui/button';
-import { EditModal } from '@/components/EditModal';
-import axios from 'axios';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
+import { EditModal } from "@/components/EditModal";
+import axios from "axios";
 
 type TodoItemProps = {
   id: number;
@@ -16,22 +16,32 @@ type TodoItemProps = {
 export default function TodoItem({ id, title, completed }: TodoItemProps) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [checked, setChecked] = useState<boolean>(completed); // optimistic state
 
-  const handleToggle = async (checked: boolean | 'indeterminate') => {
-    setLoading(true);
+  const handleDelete = async () => {
     try {
-      await axios.put(`${process.env.NEXT_PUBLIC_BASE_URL}/api/todo`, { id, completed: !!checked });
+      await axios.delete("/api/todo", { data: { id } });
       router.refresh();
-    } finally {
-      setLoading(false);
+    } catch (error) {
+      console.error("Error deleting todo:", error);
     }
   };
 
-  const handleDelete = async () => {
+  const handleToggle = async (next: boolean | "indeterminate") => {
+    // optimistic update
+    const nextVal = !!next;
+    const prev = checked;
+    setChecked(nextVal);
+
     setLoading(true);
     try {
-      await axios.delete(`${process.env.NEXT_PUBLIC_BASE_URL}/api/todo`, { data: { id } });
-      router.refresh();
+      await axios.patch("/api/todo", {
+        id,
+        completed: nextVal,
+      });
+    } catch (e) {
+      console.error("Error toggling todo:", e);
+      setChecked(prev);
     } finally {
       setLoading(false);
     }
@@ -39,24 +49,41 @@ export default function TodoItem({ id, title, completed }: TodoItemProps) {
 
   return (
     <div className="p-3 flex items-center justify-between bg-white/10 rounded-md border border-white/10">
-      <div>
+      <div className="flex items-center gap-3">
         <Checkbox
           id={`todo-${id}`}
-          checked={completed}
+          checked={checked}
           onCheckedChange={handleToggle}
           disabled={loading}
         />
         <label
           htmlFor={`todo-${id}`}
-          className={`text-white ${completed ? 'line-through opacity-60' : ''} px-4`}
+          className={`text-white px-3 ${
+            checked ? "line-through opacity-60" : ""
+          }`}
         >
           {title}
         </label>
       </div>
-      <div className='flex flex-row gap-2'>
-        <EditModal />
-        <Button type="button" onClick={handleDelete} disabled={loading} variant="ghost" size="icon">
-          ×
+
+      <div className="flex flex-row gap-2">
+        <EditModal id={id} title={title} />
+        <Button
+          type="button"
+          onClick={handleDelete}
+          disabled={loading}
+          variant="ghost"
+          size="icon"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="currentColor"
+          >
+            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+          </svg>
         </Button>
       </div>
     </div>
