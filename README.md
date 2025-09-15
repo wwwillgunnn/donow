@@ -1,13 +1,6 @@
 # DoNow!
 
-A simple full-stack Todo application built with **Next.js 15 (App Router)**, **TypeScript**, **Prisma**, and **shadcn/ui**.  
-It demonstrates how to:
-
-- Create, edit, toggle, and delete todos
-- Use **React Hook Form + Zod** for form validation
-- Use **shadcn/ui** components (`Dialog`, `Input`, `Button`, `Checkbox`)
-- Implement **optimistic UI updates**
-- Integrate with a **Prisma database** through Next.js API routes
+A simple full-stack Todo application built with **Next.js 15**, **TypeScript**, **Prisma**, and **shadcn/ui**.  
 
 ---
 
@@ -24,10 +17,10 @@ It demonstrates how to:
 
 ## 🛠️ Tech Stack
 
-- [Next.js 15]
-- [TailwindCSS](https://tailwindcss.com/) for styling
-- [shadcn/ui]
-- [Prisma]
-- [Supabase]
+- ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)  
+- ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)  
+- ![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white)  
+- ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)  
+- ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)  
 
 ![App Preview](image.png)
