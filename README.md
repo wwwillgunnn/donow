@@ -24,12 +24,10 @@ It demonstrates how to:
 
 ## 🛠️ Tech Stack
 
-- [Next.js 15](https://nextjs.org/) (App Router, Turbopack)
-- [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) for validation
-- [shadcn/ui](https://ui.shadcn.com/) for components
-- [Prisma](https://www.prisma.io/) ORM
-- [SQLite](https://www.sqlite.org/) (default, or swap to PostgreSQL/MySQL)
-- [Axios](https://axios-http.com/) for HTTP requests
+- [Next.js 15]
 - [TailwindCSS](https://tailwindcss.com/) for styling
+- [shadcn/ui]
+- [Prisma]
+- [Supabase]
 
 ![App Preview](image.png)
