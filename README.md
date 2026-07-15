@@ -1,26 +1,21 @@
 # DoNow!
 
-A simple full-stack Todo application built with **Next.js 15**, **TypeScript**, **Prisma**, and **shadcn/ui**.  
+The greatest todo app of all time.
+
+![Next.js](https://shieldcn.dev/badge/Next.js.svg?variant=branded&brand=nextdotjs)
+![Tailwind CSS](https://shieldcn.dev/badge/Tailwind%20CSS.svg?variant=branded&brand=tailwindcss)
+![Prisma](https://shieldcn.dev/badge/Prisma.svg?variant=branded&brand=prisma)
+![Supabase](https://shieldcn.dev/badge/Supabase.svg?variant=branded&brand=supabase)
 
 ---
-
-## 🚀 Features
-
-- **Add Todos** — enter a task, validate with Zod, and submit.
-- **Edit Todos** — inline modal dialog with form validation.
-- **Delete Todos** — remove instantly with server sync.
-- **Toggle Complete** — mark todos complete/incomplete with a checkbox and strikethrough styling.
-- **Optimistic UI** — checkbox updates instantly while persisting in the database.
-- **Responsive UI** — styled with Tailwind + shadcn/ui.
-
----
-
-## 🛠️ Tech Stack
-
-- ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)  
-- ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)  
-- ![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white)  
-- ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)  
-- ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)  
 
 ![App Preview](image.png)
+
+## Features
+
+* **Add Todos** – Enter a task quickly, validated with Zod, and submit.
+* **Edit Todos** – Inline modal dialog with full form validation.
+* **Delete Todos** – Remove tasks instantly with background server sync.
+* **Toggle Complete** – Mark todos complete or incomplete with a checkbox and automatic strikethrough styling.
+* **Optimistic UI Updates** – Checkboxes flip instantly on the client side while the database update resolves in the background.
+* **Responsive UI** – Beautifully built and highly accessible using Tailwind CSS and shadcn/ui.
